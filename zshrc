@@ -1,5 +1,5 @@
 # auto update
-if [ -z DISABLE_AUTO_UPDATE ]; then
+if [ -z $DISABLE_AUTO_UPDATE ]; then
   env TARGET_DIR=$HOME/.misc zsh -f $HOME/.misc/update.sh
 fi
 

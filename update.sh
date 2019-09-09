@@ -14,11 +14,17 @@ function _update_epoch() {
 }
 
 # check TARGER_DIR
-[ -z TARGET_DIR ] && return 1
-pushd $TARGET_DIR > /dev/null 2>&1
+if [ -z $TARGET_DIR ]; then
+  echo Update error: No target directory.
+  return 1
+fi
+cd $TARGET_DIR || return 1
 
 # check git available
-whence git >/dev/null || return 1
+if ! whence git >/dev/null 2>&1 ; then
+  echo Update error: no git
+  return 1
+fi
 
 # check last update
 if [ ! -f $update_file ]; then
@@ -26,7 +32,7 @@ if [ ! -f $update_file ]; then
 fi
 source $update_file
 if [[ -z "$LAST_UPDATE" ]]; then
-  echo ERROR: not exist LAST_UPDATE
+  echo Update error: not exist LAST_UPDATE in $update_file
   _update_epoch
   return 1
 fi

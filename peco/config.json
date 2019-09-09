@@ -1,0 +1,13 @@
+{
+    "Prompt": "> ",
+    "StickySelection": true,
+    "Keymap": {
+        "C-b": "peco.ScrollPageUp",
+        "C-f": "peco.ScrollPageDown",
+        "ArrowRight": "peco.ForwardChar",
+        "ArrowLeft": "peco.BackwardChar",
+        "C-s": "peco.ToggleSelectionAndSelectNext",
+        "Tab": "peco.SelectDown"
+    }
+
+}

@@ -1,0 +1,51 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-surround'
+"Plugin 'davidhalter/jedi-vim'
+
+call vundle#end()
+
+filetype plugin indent on
+
+syntax enable
+set nu
+set smartindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set background=dark
+set showmatch
+set hlsearch
+set incsearch
+set undolevels=1000
+set autowrite
+set showcmd
+
+let mapleader = "\<Space>"
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+autocmd FileType python nmap <leader>r  :!python3 %<CR>
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+"let g:jedi#auto_initialization = 0
+"let g:jedi#auto_vim_configuration = 0
+"let g:jedi#rename_command = 0

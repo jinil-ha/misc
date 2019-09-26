@@ -33,15 +33,22 @@ zstyle ':completion:*' menu select
 bindkey "^B" backward-word
 bindkey "^F" forward-word
 
-# check peco installed
+# check installed
 PECO_VERSION=`peco --version > /dev/null 2>&1`
 if [[ $? == 0 ]]; then
   PECO_INSTALLED=1
+fi
+SYSTEMCTL_VERSION=`systemctl --version > /dev/null 2>&1`
+if [[ $? == 0 ]]; then
+  SYSTEMCTL_ENABLE=1
 fi
 
 # aliases
 alias sudo='sudo -E '
 alias less='less -j15'
+if [[ "$SYSTEMCTL_ENABLE" == "1" ]]; then
+  alias sc='systemctl'
+fi
 if [[ "$PECO_INSTALLED" == "1" ]]; then
   alias hi='history -n | peco'
   alias psa='ps aux | peco --query="$1" | pbcopy'

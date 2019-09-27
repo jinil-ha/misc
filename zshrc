@@ -1,6 +1,13 @@
+MISC_DIR=`dirname $0`
+
 # auto update
 if [ -z $DISABLE_AUTO_UPDATE ]; then
   env TARGET_DIR=$HOME/.misc zsh -f $HOME/.misc/update.sh
+fi
+
+# check package status & export environment variable
+if [ -f $MISC_DIR/sh/check.sh ]; then
+  source $MISC_DIR/sh/check.sh
 fi
 
 # variables
@@ -11,11 +18,16 @@ export HIST_STAMPS="yyyy-mm-dd"
 export PATH=${PATH}:~/bin
 export JAVA_HOME=/usr
 export HOMEBREW_NO_ANALYTICS=1
-export GOPATH=$HOME/dev
-export PATH=$PATH:$GOPATH/bin
 export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 export GPG_TTY=$(tty)
+
+# Golang config
+if [[ "$GO_ENABLE" == "1" ]]; then
+  export GOPATH=$HOME/dev
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 
 # options
 setopt auto_pushd
@@ -33,23 +45,15 @@ zstyle ':completion:*' menu select
 bindkey "^B" backward-word
 bindkey "^F" forward-word
 
-# check installed
-PECO_VERSION=`peco --version > /dev/null 2>&1`
-if [[ $? == 0 ]]; then
-  PECO_INSTALLED=1
-fi
-SYSTEMCTL_VERSION=`systemctl --version > /dev/null 2>&1`
-if [[ $? == 0 ]]; then
-  SYSTEMCTL_ENABLE=1
-fi
-
 # aliases
 alias sudo='sudo -E '
 alias less='less -j15'
 if [[ "$SYSTEMCTL_ENABLE" == "1" ]]; then
   alias sc='systemctl'
+elif [[ "$BREW_ENABLE" == "1" ]]; then
+  alias sc='brew services'
 fi
-if [[ "$PECO_INSTALLED" == "1" ]]; then
+if [[ "$PECO_ENABLE" == "1" ]]; then
   alias hi='history -n | peco'
   alias psa='ps aux | peco --query="$1" | pbcopy'
 else
@@ -71,7 +75,7 @@ case "$os" in
 esac
 
 # functions
-if [[ "$PECO_INSTALLED" == "1" ]]; then
+if [[ "$PECO_ENABLE" == "1" ]]; then
   gitcd() {
     local selected
     selected=`find ~/dev/src -mindepth 3 -maxdepth 3 -type d | peco --query="$1"`

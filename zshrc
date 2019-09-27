@@ -23,7 +23,7 @@ export LC_ALL="en_US.UTF-8"
 export GPG_TTY=$(tty)
 
 # Golang config
-if [[ "$GO_ENABLE" == "1" ]]; then
+if [ -n "${GO_ENABLE+1}" ]; then
   export GOPATH=$HOME/dev
   export PATH=$PATH:$GOPATH/bin
 fi

@@ -48,12 +48,12 @@ bindkey "^F" forward-word
 # aliases
 alias sudo='sudo -E '
 alias less='less -j15'
-if [[ "$SYSTEMCTL_ENABLE" == "1" ]]; then
+if [ -n "${SYSTEMCTL_ENABLE+1}" ]; then
   alias sc='systemctl'
-elif [[ "$BREW_ENABLE" == "1" ]]; then
+elif [ -n "${BREW_ENABLE+1}" ]; then
   alias sc='brew services'
 fi
-if [[ "$PECO_ENABLE" == "1" ]]; then
+if [ -n "${PECO_ENABLE+1}" ]; then
   alias hi='history -n | peco'
   alias psa='ps aux | peco --query="$1" | pbcopy'
 else

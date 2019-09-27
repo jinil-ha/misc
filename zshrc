@@ -75,7 +75,7 @@ case "$os" in
 esac
 
 # functions
-if [[ "$PECO_ENABLE" == "1" ]]; then
+if [ -n "${PECO_ENABLE+1}" ]; then
   gitcd() {
     local selected
     selected=`find ~/dev/src -mindepth 3 -maxdepth 3 -type d | peco --query="$1"`

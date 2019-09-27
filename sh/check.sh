@@ -1,21 +1,17 @@
 
 # check installed
-peco --version > /dev/null 2>&1
-if [[ $? == 0 ]]; then
+if type peco &> /dev/null; then 
   export PECO_ENABLE=1
 fi
 
-systemctl --version > /dev/null 2>&1
-if [[ $? == 0 ]]; then
+if type systemctl &> /dev/null; then
   export SYSTEMCTL_ENABLE=1
 fi
 
-brew --version > /dev/null 2>&1
-if [[ $? == 0 ]]; then
+if type brew &> /dev/null; then
   export BREW_ENABLE=1
 fi
 
-go version > /dev/null 2>&1
-if [[ $? == 0 ]]; then
+if type go &> /dev/null; then
   export GO_ENABLE=1
 fi

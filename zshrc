@@ -55,10 +55,9 @@ elif [ -n "${BREW_ENABLE+1}" ]; then
 fi
 if [ -n "${PECO_ENABLE+1}" ]; then
   alias hi='history -n | peco'
-  alias psa='ps aux | peco --query="$1" | pbcopy'
+  alias pp='ps aux | peco --query="$1" | pbcopy'
 else
   alias hi='history -n'
-  alias psa='ps aux'
 fi
 alias reload_zsh='source ~/.zshrc'
 alias https='http --default-scheme=https'
@@ -67,10 +66,11 @@ alias https='http --default-scheme=https'
 os=`uname 2> /dev/null`
 case "$os" in
   Darwin)
-    alias listen='lsof -iTCP -sTCP:LISTEN -n'
+    alias listen='lsof -iTCP -sTCP:LISTEN'
     ;;
   Linux)
-    alias listen="netstat -tlnp"
+    alias listen='netstat -tlnp'
+    alias psa='ps aux -H'
     ;;
 esac
 

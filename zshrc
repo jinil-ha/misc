@@ -66,7 +66,7 @@ alias https='http --default-scheme=https'
 os=`uname 2> /dev/null`
 case "$os" in
   Darwin)
-    alias listen='lsof -iTCP -sTCP:LISTEN'
+    alias listen='lsof -iTCP -sTCP:LISTEN -nP'
     ;;
   Linux)
     alias listen='netstat -tlnp'

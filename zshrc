@@ -12,6 +12,7 @@ fi
 
 # variables
 export PROMPT=$'%{$fg_bold[green]%}%n@%m%{$fg[blue]%}%D{[%H%M%S]}%{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%}$(git_prompt_info)%{$fg_bold[blue]%}%#%{$reset_color%} '
+export EDITOR=vim
 export SAVEHIST=100000
 export HISTSIZE=100000
 export HIST_STAMPS="yyyy-mm-dd"

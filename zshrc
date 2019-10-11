@@ -71,7 +71,8 @@ case "$os" in
     ;;
   Linux)
     alias listen='netstat -tlnp'
-    alias psa='ps aux -H'
+    alias ps='ps ux -H'
+    alias psa='ps a'
     ;;
 esac
 

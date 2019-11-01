@@ -47,6 +47,8 @@ bindkey "^B" backward-word
 bindkey "^F" forward-word
 
 # aliases
+alias l='ls -lh'
+alias ll='ls -lah'
 alias sudo='sudo -E '
 alias less='less -j15'
 if [ -n "${SYSTEMCTL_ENABLE+1}" ]; then

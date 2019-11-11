@@ -23,12 +23,6 @@ export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 export GPG_TTY=$(tty)
 
-# Golang config
-if [ -n "${GO_ENABLE+1}" ]; then
-  export GOPATH=$HOME/dev
-  export PATH=$PATH:$GOPATH/bin
-fi
-
 
 # options
 setopt auto_pushd

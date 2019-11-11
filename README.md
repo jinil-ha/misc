@@ -1,6 +1,6 @@
 # Install
 ```sh
-git clone git@github.com:jinil-ha/misc.git $HOME/.misc
+git clone https://github.com/jinil-ha/misc.git .misc
 ```
 
 # zshrc

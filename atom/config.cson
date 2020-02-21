@@ -1,0 +1,63 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
+  core:
+    disabledPackages: [
+      "markdown-preview"
+      "linter"
+      "file-icons"
+      "build"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontSize: 12
+    preferredLineLength: 120
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "ba0d701f-4017-40e6-a736-f38159798bca"
+  "go-plus":
+    navigator:
+      mode: "guru"
+    panel:
+      displayMode: "closed"
+      focusOnFailure: false
+    test:
+      runTestsOnSave: false
+      runTestsWithCoverage: false
+      runTestsWithShortFlag: false
+  "ide-python":
+    pylsPlugins:
+      preload: {}
+      pycodestyle: {}
+      pyflakes:
+        enabled: false
+      pylint: {}
+  linter:
+    lintOnChange: false
+  "linter-ui-default":
+    panelHeight: 161
+    showPanel: true
+  "markdown-preview-plus":
+    useGitHubStyle: true
+  "platformio-ide":
+    advanced:
+      useBuiltinPIOCore: true
+  "tool-bar":
+    visible: false
+  "tree-view":
+    autoReveal: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+".go.source":
+  editor:
+    showInvisibles: false
+".python.regexp.source":
+  editor:
+    tabLength: 42
+".python.source":
+  editor:
+    autoIndentOnPaste: true
+    showInvisibles: false

@@ -26,7 +26,7 @@ export GPG_TTY=$(tty)
 
 # options
 setopt auto_pushd
-#setopt share_history
+setopt no_share_history
 setopt auto_cd
 cdpath=(.. ~)
 setopt print_exit_value

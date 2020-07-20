@@ -30,14 +30,25 @@
   "ide-python":
     pylsPlugins:
       preload: {}
-      pycodestyle: {}
+      pycodestyle:
+        ignore: [
+          "E121"
+          "E123"
+          "E126"
+          "E226"
+          "E24"
+          "E704"
+          "W503"
+          "E722"
+        ]
+        maxLineLength: 120
       pyflakes:
         enabled: false
       pylint: {}
   linter:
     lintOnChange: false
   "linter-ui-default":
-    panelHeight: 161
+    panelHeight: 346
     showPanel: true
   "markdown-preview-plus":
     useGitHubStyle: true
@@ -53,6 +64,8 @@
     showOnStartup: false
 ".go.source":
   editor:
+    scrollPastEnd: false
+    showIndentGuide: true
     showInvisibles: false
 ".python.regexp.source":
   editor:
